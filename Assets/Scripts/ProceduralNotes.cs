@@ -15,14 +15,17 @@ public class ProceduralNotes : MonoBehaviour
     #endregion à_lire
     [SerializeField] float _speed = 10f;
     public Rigidbody _rb;
+    public Generateur _notes;
 
     void Start()
     {
         _rb = transform.GetComponent<Rigidbody>();
+        _notes = FindObjectOfType<Generateur>();
     }
 
     void Update()
     {
+        _speed = _notes._distance / _notes._timeRatio;
         _rb.MovePosition(transform.position - transform.forward * _speed * Time.deltaTime);
     }
 }
