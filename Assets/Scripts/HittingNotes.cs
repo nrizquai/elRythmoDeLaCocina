@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.OnScreen;
+using static UnityEngine.InputSystem.InputAction;
 
 public class HittingNotes : MonoBehaviour
 {
@@ -13,14 +17,49 @@ public class HittingNotes : MonoBehaviour
     // s'il y a deux variables pareilles nommé VarA, VarB par exemple.
     // /!\ ATTENTION : bien regarder le cycle de vis sur discord.
     #endregion à_lire
+    [SerializeField] PlayerInputs _playerInputs = null;
 
-    void Start()
+    [SerializeField] float _maxBlocScale = 1.1f;
+    [SerializeField] float _minBlocScale = 1.0f;
+
+    [SerializeField] InputActionReference input;
+
+
+    private void Awake()
     {
-        
+        //_playerInputs = new PlayerInputs();
+
+        //_playerInputs.Controller.UoR.started+= IsHitting;
+        //_playerInputs.Controller.UoR.canceled+= IsHitting;
+
+            
     }
 
-    void Update()
+    #region init controller
+    private void OnEnable()
     {
-        
+        input.action.Enable();
+        input.action.performed += IsHitting;
     }
+
+    private void OnDisable()
+    {
+        input.action.Disable();
+        input.action.performed -= IsHitting;
+
+    }
+    #endregion init controller
+
+    public void IsHitting(CallbackContext ctx)
+    {
+        if (!ctx.performed)
+            return;
+
+        
+        if (ctx.ReadValueAsButton())
+            transform.localScale = new Vector3(_maxBlocScale, _maxBlocScale, _maxBlocScale);
+        else
+            transform.localScale = new Vector3(_minBlocScale, _minBlocScale, _minBlocScale);
+    }
+
 }

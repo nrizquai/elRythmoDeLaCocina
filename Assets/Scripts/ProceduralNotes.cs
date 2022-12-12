@@ -13,15 +13,16 @@ public class ProceduralNotes : MonoBehaviour
     // s'il y a deux variables pareilles nommé VarA, VarB par exemple.
     // /!\ ATTENTION : bien regarder le cycle de vis sur discord.
     #endregion à_lire
-
+    [SerializeField] float _speed = 10f;
+    public Rigidbody _rb;
 
     void Start()
     {
-        
+        _rb = transform.GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        
+        _rb.MovePosition(transform.position - transform.forward * _speed * Time.deltaTime);
     }
 }

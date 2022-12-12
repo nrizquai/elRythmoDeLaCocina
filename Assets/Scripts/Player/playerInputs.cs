@@ -33,7 +33,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""id"": ""a704aa73-b75f-4c04-8043-0b685626eed9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -42,7 +42,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""id"": ""7799eaed-bd45-46c9-901b-89af1a159a36"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -51,7 +51,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""id"": ""6fb261da-3cae-4792-b356-852ba16985cf"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -60,7 +60,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""id"": ""390efaa6-aca3-4e67-94fd-edf42c4b02fd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -69,7 +69,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""id"": ""478d6a5d-903f-4dcc-a507-460c4f2d364d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -78,7 +78,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""id"": ""8e2a23e6-b6ad-4fbd-84fb-fffae12974c6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
                 }
             ],
