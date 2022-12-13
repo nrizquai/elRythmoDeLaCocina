@@ -13,7 +13,7 @@ public class ProceduralNotes : MonoBehaviour
     // s'il y a deux variables pareilles nommé VarA, VarB par exemple.
     // /!\ ATTENTION : bien regarder le cycle de vis sur discord.
     #endregion à_lire
-    [SerializeField] float _speed = 10f;
+    //[SerializeField] float _speed = 10f;
     public Rigidbody _rb;
     public Generateur _notes;
 
@@ -25,7 +25,6 @@ public class ProceduralNotes : MonoBehaviour
 
     void Update()
     {
-        _speed = _notes._distance / _notes._timeRatio;
-        _rb.MovePosition(transform.position - transform.forward * _speed * Time.deltaTime);
+        _rb.MovePosition(transform.position - transform.forward * _notes._speed * Time.deltaTime);
     }
 }

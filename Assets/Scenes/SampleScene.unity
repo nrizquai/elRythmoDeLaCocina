@@ -480,7 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxBlocScale: 1.1
   _minBlocScale: 1
-  input: {fileID: 0}
+  input: {fileID: -7287346680587254024, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
 --- !u!1 &467036372
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,9 +517,10 @@ MonoBehaviour:
   - {fileID: 761007195}
   - {fileID: 1221442855}
   - {fileID: 493540292}
-  _delay: 0
-  _bpm: 72
   _prefab: {fileID: 7646637145313703617, guid: 539b04412a26f0547855c78a9ad15edf, type: 3}
+  _bpm: 144
+  _dist: 10
+  _speed: 0
 --- !u!4 &467036374
 Transform:
   m_ObjectHideFlags: 0
@@ -644,7 +645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxBlocScale: 1.1
   _minBlocScale: 1
-  input: {fileID: 0}
+  input: {fileID: -7964254491485311921, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
 --- !u!1 &493990036
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,7 +924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxBlocScale: 1.1
   _minBlocScale: 1
-  input: {fileID: 0}
+  input: {fileID: 4494603188691089152, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
 --- !u!1 &824041182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1062,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959619603}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1104,7 +1105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9305bd9f45d349145b75ca84972eeedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiFill: {fileID: 0}
+  uiFill: {fileID: 493990038}
   Duration: 180
 --- !u!1 &961224372
 GameObject:

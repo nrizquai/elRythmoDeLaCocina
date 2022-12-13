@@ -216,6 +216,89 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UIController"",
+            ""id"": ""cf42c472-5570-413d-8738-6b563b0b1b0d"",
+            ""actions"": [
+                {
+                    ""name"": ""joystickL"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e049a18-5604-47fb-9fff-8dd372e7072a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""4abe54ce-97e4-4280-80ae-e9f3841acf7a"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""joystickL"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""17f7b1c3-53ff-487f-ab40-c26ab9fd90ba"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""joystickL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""a84c0c45-0711-4627-b4f6-c5a1248cd3d5"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""joystickL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""arrows"",
+                    ""id"": ""64466f0d-522d-4c26-9cdc-592f43817d68"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""joystickL"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""0cb18e60-bba0-4282-83f5-0be512dcad15"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""joystickL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""7c80b407-e5c0-4a74-b9cc-6b7fb467278a"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""joystickL"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -228,6 +311,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Controller_CoC = m_Controller.FindAction("CoC", throwIfNotFound: true);
         m_Controller_LTs = m_Controller.FindAction("LTs", throwIfNotFound: true);
         m_Controller_RTs = m_Controller.FindAction("RTs", throwIfNotFound: true);
+        // UIController
+        m_UIController = asset.FindActionMap("UIController", throwIfNotFound: true);
+        m_UIController_joystickL = m_UIController.FindAction("joystickL", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -356,6 +442,39 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         }
     }
     public ControllerActions @Controller => new ControllerActions(this);
+
+    // UIController
+    private readonly InputActionMap m_UIController;
+    private IUIControllerActions m_UIControllerActionsCallbackInterface;
+    private readonly InputAction m_UIController_joystickL;
+    public struct UIControllerActions
+    {
+        private @PlayerInputs m_Wrapper;
+        public UIControllerActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @joystickL => m_Wrapper.m_UIController_joystickL;
+        public InputActionMap Get() { return m_Wrapper.m_UIController; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIControllerActions set) { return set.Get(); }
+        public void SetCallbacks(IUIControllerActions instance)
+        {
+            if (m_Wrapper.m_UIControllerActionsCallbackInterface != null)
+            {
+                @joystickL.started -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnJoystickL;
+                @joystickL.performed -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnJoystickL;
+                @joystickL.canceled -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnJoystickL;
+            }
+            m_Wrapper.m_UIControllerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @joystickL.started += instance.OnJoystickL;
+                @joystickL.performed += instance.OnJoystickL;
+                @joystickL.canceled += instance.OnJoystickL;
+            }
+        }
+    }
+    public UIControllerActions @UIController => new UIControllerActions(this);
     public interface IControllerActions
     {
         void OnUoR(InputAction.CallbackContext context);
@@ -364,5 +483,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         void OnCoC(InputAction.CallbackContext context);
         void OnLTs(InputAction.CallbackContext context);
         void OnRTs(InputAction.CallbackContext context);
+    }
+    public interface IUIControllerActions
+    {
+        void OnJoystickL(InputAction.CallbackContext context);
     }
 }
