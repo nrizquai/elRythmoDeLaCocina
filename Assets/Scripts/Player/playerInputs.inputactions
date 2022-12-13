@@ -207,6 +207,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "validate",
+                    "type": "Button",
+                    "id": "894e9db1-6f55-4347-916d-1248509d350b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "return",
+                    "type": "Button",
+                    "id": "a6849f66-59f4-4b53-94e0-7b4a4198458a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -224,7 +242,7 @@
                 {
                     "name": "negative",
                     "id": "17f7b1c3-53ff-487f-ab40-c26ab9fd90ba",
-                    "path": "<Gamepad>/leftStick/down",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -235,7 +253,7 @@
                 {
                     "name": "positive",
                     "id": "a84c0c45-0711-4627-b4f6-c5a1248cd3d5",
-                    "path": "<Gamepad>/leftStick/up",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -257,7 +275,7 @@
                 {
                     "name": "negative",
                     "id": "0cb18e60-bba0-4282-83f5-0be512dcad15",
-                    "path": "<Gamepad>/dpad/down",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -268,13 +286,35 @@
                 {
                     "name": "positive",
                     "id": "7c80b407-e5c0-4a74-b9cc-6b7fb467278a",
-                    "path": "<Gamepad>/dpad/up",
+                    "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "joystickL",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "32d0c844-54b0-455f-aa9f-82fd9e465130",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "validate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b86078a9-f0c1-4f41-af4a-c2d1e29057cb",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "return",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

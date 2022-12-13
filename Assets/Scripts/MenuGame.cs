@@ -22,10 +22,14 @@ public class MenuGame : MonoBehaviour
         inputs = new PlayerInputs();
 
         inputs.UIController.joystickL.started += Navigate;
+        inputs.UIController.validate.performed += valid;
+        inputs.UIController.@return.started += Back;
+
+        
     }
     private void Start()
     {
-        actual = 0;
+        //actual = 0;
 
     }
     private void Update()
@@ -69,21 +73,45 @@ public class MenuGame : MonoBehaviour
         //debug
         affichage[actual].text += "*";
     }
+    void valid(CallbackContext ctx)
+    {
+        if (actual == 0 && affichage.Count == 4)
+        {
+            Play();
+        }
+
+        if (actual == 1 && affichage.Count == 4)
+        {
+            Options();
+        }
+
+        if (actual == 2 && affichage.Count == 4)
+        {
+            Credits();
+        }
+
+        if (actual == 3 && affichage.Count == 4)
+        {
+            OnQuit();
+        }
+    }
     public void Play()
     {
         SceneManager.LoadScene(1);
     }
-
     public void Options()
     {
         SceneManager.LoadScene(2);
     }
-
     public void Credits()
     {
         SceneManager.LoadScene(3);
     }
-    public void OnApplicationQuit()
+    public void Back(CallbackContext ctx)
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void OnQuit()
     {
         Application.Quit();
     }

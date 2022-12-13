@@ -229,6 +229,24 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""validate"",
+                    ""type"": ""Button"",
+                    ""id"": ""894e9db1-6f55-4347-916d-1248509d350b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""return"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6849f66-59f4-4b53-94e0-7b4a4198458a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -246,7 +264,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""17f7b1c3-53ff-487f-ab40-c26ab9fd90ba"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -257,7 +275,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""a84c0c45-0711-4627-b4f6-c5a1248cd3d5"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -279,7 +297,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""0cb18e60-bba0-4282-83f5-0be512dcad15"",
-                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -290,13 +308,35 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""7c80b407-e5c0-4a74-b9cc-6b7fb467278a"",
-                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""joystickL"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32d0c844-54b0-455f-aa9f-82fd9e465130"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""validate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b86078a9-f0c1-4f41-af4a-c2d1e29057cb"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -314,6 +354,8 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         // UIController
         m_UIController = asset.FindActionMap("UIController", throwIfNotFound: true);
         m_UIController_joystickL = m_UIController.FindAction("joystickL", throwIfNotFound: true);
+        m_UIController_validate = m_UIController.FindAction("validate", throwIfNotFound: true);
+        m_UIController_return = m_UIController.FindAction("return", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -447,11 +489,15 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UIController;
     private IUIControllerActions m_UIControllerActionsCallbackInterface;
     private readonly InputAction m_UIController_joystickL;
+    private readonly InputAction m_UIController_validate;
+    private readonly InputAction m_UIController_return;
     public struct UIControllerActions
     {
         private @PlayerInputs m_Wrapper;
         public UIControllerActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @joystickL => m_Wrapper.m_UIController_joystickL;
+        public InputAction @validate => m_Wrapper.m_UIController_validate;
+        public InputAction @return => m_Wrapper.m_UIController_return;
         public InputActionMap Get() { return m_Wrapper.m_UIController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -464,6 +510,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @joystickL.started -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnJoystickL;
                 @joystickL.performed -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnJoystickL;
                 @joystickL.canceled -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnJoystickL;
+                @validate.started -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnValidate;
+                @validate.performed -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnValidate;
+                @validate.canceled -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnValidate;
+                @return.started -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnReturn;
+                @return.performed -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnReturn;
+                @return.canceled -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnReturn;
             }
             m_Wrapper.m_UIControllerActionsCallbackInterface = instance;
             if (instance != null)
@@ -471,6 +523,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @joystickL.started += instance.OnJoystickL;
                 @joystickL.performed += instance.OnJoystickL;
                 @joystickL.canceled += instance.OnJoystickL;
+                @validate.started += instance.OnValidate;
+                @validate.performed += instance.OnValidate;
+                @validate.canceled += instance.OnValidate;
+                @return.started += instance.OnReturn;
+                @return.performed += instance.OnReturn;
+                @return.canceled += instance.OnReturn;
             }
         }
     }
@@ -487,5 +545,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     public interface IUIControllerActions
     {
         void OnJoystickL(InputAction.CallbackContext context);
+        void OnValidate(InputAction.CallbackContext context);
+        void OnReturn(InputAction.CallbackContext context);
     }
 }
