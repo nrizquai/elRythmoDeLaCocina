@@ -80,6 +80,15 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""a372eb09-6075-4fdf-8a94-7601ea572a56"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -214,6 +223,17 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""action"": ""RTs"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac257450-d237-42a5-847e-4f0edf0e7556"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -243,6 +263,15 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""name"": ""return"",
                     ""type"": ""Button"",
                     ""id"": ""a6849f66-59f4-4b53-94e0-7b4a4198458a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed7bc631-2cae-4aea-854d-1f94a6236e94"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -337,6 +366,17 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""action"": ""return"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f12aa0d-cc20-43d2-80f1-f7ceb537edf7"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -351,11 +391,13 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Controller_CoC = m_Controller.FindAction("CoC", throwIfNotFound: true);
         m_Controller_LTs = m_Controller.FindAction("LTs", throwIfNotFound: true);
         m_Controller_RTs = m_Controller.FindAction("RTs", throwIfNotFound: true);
+        m_Controller_Pause = m_Controller.FindAction("Pause", throwIfNotFound: true);
         // UIController
         m_UIController = asset.FindActionMap("UIController", throwIfNotFound: true);
         m_UIController_joystickL = m_UIController.FindAction("joystickL", throwIfNotFound: true);
         m_UIController_validate = m_UIController.FindAction("validate", throwIfNotFound: true);
         m_UIController_return = m_UIController.FindAction("return", throwIfNotFound: true);
+        m_UIController_Pause = m_UIController.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -421,6 +463,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_CoC;
     private readonly InputAction m_Controller_LTs;
     private readonly InputAction m_Controller_RTs;
+    private readonly InputAction m_Controller_Pause;
     public struct ControllerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -431,6 +474,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         public InputAction @CoC => m_Wrapper.m_Controller_CoC;
         public InputAction @LTs => m_Wrapper.m_Controller_LTs;
         public InputAction @RTs => m_Wrapper.m_Controller_RTs;
+        public InputAction @Pause => m_Wrapper.m_Controller_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Controller; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -458,6 +502,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @RTs.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnRTs;
                 @RTs.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnRTs;
                 @RTs.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnRTs;
+                @Pause.started -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_ControllerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_ControllerActionsCallbackInterface = instance;
             if (instance != null)
@@ -480,6 +527,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @RTs.started += instance.OnRTs;
                 @RTs.performed += instance.OnRTs;
                 @RTs.canceled += instance.OnRTs;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -491,6 +541,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_UIController_joystickL;
     private readonly InputAction m_UIController_validate;
     private readonly InputAction m_UIController_return;
+    private readonly InputAction m_UIController_Pause;
     public struct UIControllerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -498,6 +549,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         public InputAction @joystickL => m_Wrapper.m_UIController_joystickL;
         public InputAction @validate => m_Wrapper.m_UIController_validate;
         public InputAction @return => m_Wrapper.m_UIController_return;
+        public InputAction @Pause => m_Wrapper.m_UIController_Pause;
         public InputActionMap Get() { return m_Wrapper.m_UIController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -516,6 +568,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @return.started -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnReturn;
                 @return.performed -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnReturn;
                 @return.canceled -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnReturn;
+                @Pause.started -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_UIControllerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_UIControllerActionsCallbackInterface = instance;
             if (instance != null)
@@ -529,6 +584,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @return.started += instance.OnReturn;
                 @return.performed += instance.OnReturn;
                 @return.canceled += instance.OnReturn;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -541,11 +599,13 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         void OnCoC(InputAction.CallbackContext context);
         void OnLTs(InputAction.CallbackContext context);
         void OnRTs(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIControllerActions
     {
         void OnJoystickL(InputAction.CallbackContext context);
         void OnValidate(InputAction.CallbackContext context);
         void OnReturn(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

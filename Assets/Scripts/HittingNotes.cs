@@ -24,6 +24,7 @@ public class HittingNotes : MonoBehaviour
 
     [SerializeField] InputActionReference input;
 
+    public PauseMenu stop;
 
     private void Awake()
     {
@@ -61,5 +62,11 @@ public class HittingNotes : MonoBehaviour
         else
             transform.localScale = new Vector3(_minBlocScale, _minBlocScale, _minBlocScale);
     }
-
+    private void Update()
+    {
+        if(stop.Bool == true)
+        {
+            this.enabled = false;
+        }
+    }
 }

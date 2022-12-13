@@ -9,66 +9,57 @@ public class PauseMenu : MonoBehaviour
 {
 
     [SerializeField] PlayerInputs _playerInputs = null;
-    [SerializeField] InputActionReference input;
 
-    [SerializeField] private GameObject pauseUI;
+    public GameObject pauseUI;
+
+    public HittingNotes A, B, C, D, E, F;
+
+    public bool Bool;
     //[SerializeField] private bool isPaused;
     
     // Start is called before the first frame update
     private void Awake()
     {
         _playerInputs = new PlayerInputs();
+        _playerInputs.UIController.Pause.performed += DeactivateMenu;
     }
 
 
     private void OnEnable()
     {
-        input.action.Enable();
-        input.action.performed += isPausing;
+        _playerInputs.UIController.Pause.Enable();
 
         
     }
 
     private void OnDisable()
     {
-        input.action.Disable();
-        input.action.performed -= isPausing;
+        _playerInputs.UIController.Pause.Disable();
     }
 
-    public void isPausing(CallbackContext ctx)
+    
+    void DeactivateMenu(CallbackContext ctx)
     {
-        if (!ctx.performed)
-            return;
-
-        if (ctx.ReadValueAsButton())
+        Bool = !Bool;
+        if(Bool == true)
         {
-            ActivateMenu();
+            Time.timeScale = 0;
+            AudioListener.pause = true;
+            pauseUI.SetActive(true);
         }
-
-        else 
+        if(Bool == false)
         {
-            DeactivateMenu();
+            Time.timeScale = 1;
+            AudioListener.pause = false;
+            pauseUI.SetActive(false);
+
+            A.enabled = true;
+            B.enabled = true;
+            C.enabled = true;
+            D.enabled = true;
+            E.enabled = true;
+            F.enabled = true;
         }
-        
-       
-
-
-
-    }
-
-    void ActivateMenu()
-    {
-        Time.timeScale = 0;
-        AudioListener.pause = true;
-        pauseUI.SetActive(true);
-        
-    }
-
-    void DeactivateMenu()
-    {
-        Time.timeScale = 1;
-        AudioListener.pause = false;
-        pauseUI.SetActive(false);
         
 
     }

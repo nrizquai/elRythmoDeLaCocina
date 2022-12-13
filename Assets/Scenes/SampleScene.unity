@@ -373,6 +373,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: -1228042006137708326, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
+  stop: {fileID: 1310198367}
 --- !u!1 &422794128
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +437,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.18452138, g: 0.6981132, b: 0.10800992, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -605,6 +606,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: -7287346680587254024, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
+  stop: {fileID: 1310198367}
 --- !u!1 &467036372
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +643,6 @@ MonoBehaviour:
   - {fileID: 761007195}
   - {fileID: 1221442855}
   - {fileID: 493540292}
-  volumeSlider: {fileID: 2118036299}
   _prefab: {fileID: 7646637145313703617, guid: 539b04412a26f0547855c78a9ad15edf, type: 3}
   _bpm: 144
   _dist: 10
@@ -771,6 +772,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: -7964254491485311921, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
+  stop: {fileID: 1310198367}
 --- !u!1 &493990036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,6 +1052,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: 4494603188691089152, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
+  stop: {fileID: 1310198367}
 --- !u!1 &824041182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1666,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: 7763109914074179273, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
+  stop: {fileID: 1310198367}
 --- !u!1 &1116859555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,6 +1853,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: 2027325026871324541, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
+  stop: {fileID: 1310198367}
 --- !u!1 &1239593040
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,8 +2013,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02644f3c039f6ce4092025e4246a34bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: -3928029088923677180, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
   pauseUI: {fileID: 1404472431}
+  A: {fileID: 433225135}
+  B: {fileID: 409886780}
+  C: {fileID: 1084864558}
+  D: {fileID: 761007200}
+  E: {fileID: 1221442860}
+  F: {fileID: 493540297}
+  Bool: 0
 --- !u!1 &1318687314
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,7 +2199,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.18452138, g: 0.6981132, b: 0.10800992, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2552,7 +2563,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.18452138, g: 0.6981132, b: 0.10800992, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3000,7 +3011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bloc: []
-  _delay: 0
-  _bpm: 0
-  volumeSlider: {fileID: 2118036299}
   _prefab: {fileID: 0}
+  _bpm: 0
+  _dist: 10
+  _speed: 0
