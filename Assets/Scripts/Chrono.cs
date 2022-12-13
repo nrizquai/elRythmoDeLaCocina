@@ -29,11 +29,13 @@ public class Chrono : MonoBehaviour
 
     private IEnumerator UpdateTimer()
     {
+        
         while (remainingDuration >= 0)
         {
             uiFill.fillAmount = Mathf.InverseLerp(0, Duration, remainingDuration);
             remainingDuration--;
             yield return new WaitForSeconds(1f);
+            
         }
     }
 }
