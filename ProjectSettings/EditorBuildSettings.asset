@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Cr\xE9dits.unity"
     guid: 770c46b641b65f14e91ff799b34ecc41
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 0562f46e40bf36e49b5f599d76c1a4d4
   m_configObjects: {}
