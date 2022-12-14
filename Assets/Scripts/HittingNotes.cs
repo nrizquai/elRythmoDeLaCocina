@@ -86,7 +86,7 @@ public class HittingNotes : MonoBehaviour
     }
     private void Update()
     {
-        if(stop.Bool == true)
+        if(stop.inPause == true)
         {
             this.enabled = false;
         }

@@ -14,20 +14,21 @@ public class PauseMenu : MonoBehaviour
 
     public HittingNotes A, B, C, D, E, F;
 
-    public bool Bool;
-    //[SerializeField] private bool isPaused;
+    public bool inPause;
+
     
     // Start is called before the first frame update
     private void Awake()
     {
         _playerInputs = new PlayerInputs();
-        _playerInputs.UIController.Pause.performed += DeactivateMenu;
+        _playerInputs.UIController.Pause.performed += validate;
     }
-
+   
 
     private void OnEnable()
     {
         _playerInputs.UIController.Pause.Enable();
+        _playerInputs.UIController.validate.Enable();
 
         
     }
@@ -35,24 +36,27 @@ public class PauseMenu : MonoBehaviour
     private void OnDisable()
     {
         _playerInputs.UIController.Pause.Disable();
+        _playerInputs.UIController.validate.Disable();
     }
 
     
-    void DeactivateMenu(CallbackContext ctx)
+    void validate(CallbackContext ctx)
     {
-        Bool = !Bool;
-        if(Bool == true)
+        
+        inPause = !inPause;
+        if(inPause == true)
         {
             Time.timeScale = 0;
             AudioListener.pause = true;
             pauseUI.SetActive(true);
+            
         }
-        if(Bool == false)
+        if(inPause == false) 
         {
+
             Time.timeScale = 1;
             AudioListener.pause = false;
             pauseUI.SetActive(false);
-
             A.enabled = true;
             B.enabled = true;
             C.enabled = true;
@@ -61,6 +65,22 @@ public class PauseMenu : MonoBehaviour
             F.enabled = true;
         }
         
+
+    }
+
+  
+
+    public void Valid()
+    {
+        
+    }
+    public void Options()
+    {
+
+    }
+
+    public void Quitter()
+    {
 
     }
 }
