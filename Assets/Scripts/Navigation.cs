@@ -32,7 +32,7 @@ public class Navigation : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(4);
     }
     public void Options()
     {
