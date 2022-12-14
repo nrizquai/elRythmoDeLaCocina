@@ -25,14 +25,11 @@ public class HittingNotes : MonoBehaviour
     [SerializeField] InputActionReference input;
 
     public PauseMenu stop;
+    public ProceduralNotes notes;
 
+    CallbackContext context;
     private void Awake()
     {
-        //_playerInputs = new PlayerInputs();
-
-        //_playerInputs.Controller.UoR.started+= IsHitting;
-        //_playerInputs.Controller.UoR.canceled+= IsHitting;
-
             
     }
 
@@ -61,6 +58,31 @@ public class HittingNotes : MonoBehaviour
             transform.localScale = new Vector3(_maxBlocScale, _maxBlocScale, _maxBlocScale);
         else
             transform.localScale = new Vector3(_minBlocScale, _minBlocScale, _minBlocScale);
+
+        context = ctx;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(context.ReadValueAsButton() == true)
+        {
+            float _dist = Vector3.Distance(transform.position, notes.transform.position);
+
+            if(_dist <= 0.5f && _dist >= -0.5f)
+            {
+
+                Destroy(other.gameObject);
+            }
+            if(_dist > -0.6f)
+            {
+
+                Destroy(other.gameObject);
+            }
+            if(_dist > 0.6f)
+            {
+
+            }
+        }
     }
     private void Update()
     {

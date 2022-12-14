@@ -25,6 +25,7 @@ public class ProceduralNotes : MonoBehaviour
 
     void Update()
     {
-        _rb.MovePosition(transform.position - transform.forward * _notes._speed * Time.deltaTime);
+        _rb.MovePosition(transform.position - transform.forward * _notes.speed * Time.deltaTime);
     }
+
 }

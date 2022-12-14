@@ -4,46 +4,65 @@ using UnityEngine;
 
 public class Generateur : MonoBehaviour
 {
-    [SerializeField] List<GameObject> _bloc;
-
-    [SerializeField] GameObject _prefab;
-
-    [SerializeField] float _bpm;
-    [SerializeField] float _dist = 10f;
-    public float _speed;
-
-    float _ellapsedMusic;
-    float _timeRatio;
-    float _beatDuration;
-    float _ellapsed;
-
-    private void Awake()
+    [System.Serializable]
+    public struct MusicNote
     {
-        _beatDuration = 60f / _bpm;
-        _timeRatio = _bpm / 60f;
+        public float Pos;
+        public int Bloc;
     }
+
+    [SerializeField] GameObject prefab;
+    [SerializeField] List<GameObject> _bloc;
+    [SerializeField] List<MusicNote> partition;
+    [SerializeField] float bpm;
+
+    public List<Transform> notes;
+    public float speed;
+    public float timeRatio;
+
+    //[SerializeField] Camera cam;
+
+    float ellapsed;
+    float ellapsedMusic;
+    float beatDuration;
+
+
     void Start()
     {
+        beatDuration = 60f / bpm;
+        timeRatio = bpm / 60f;
 
+        notes = new List<Transform>();
+        for (int i = 0; i < partition.Count; i++)
+        {
+            MusicNote note = partition[i];
+            int j = note.Bloc;
+            GameObject go = Instantiate(prefab);
+            go.transform.position = _bloc[j].transform.position + Vector3.forward * timeRatio * note.Pos * speed;
+            //go.GetComponent<MeshRenderer>().material.color = (partition[i] % 1 == 0 ? Color.yellow : Color.blue);
+
+            notes.Add(go.transform);
+        }
     }
 
     void Update()
     {
-        //float frameTime = Time.deltaTime;
-        _ellapsed += Time.deltaTime;
+        float frameTime = Time.deltaTime;
 
-        int i = Random.Range(0, _bloc.Count);
-        _speed = _dist / _timeRatio;
+        ellapsed += frameTime;
 
-        if(_ellapsed > _beatDuration)
+        if (ellapsed > beatDuration)
         {
-            //frameTime = frameTime - (_ellapsed % _beatDuration);
-            //_distance = Vector3.Distance(_bloc[i].transform.position, Pn.transform.position);
-            _ellapsed = _ellapsed % _beatDuration;
-            Instantiate(_prefab, _bloc[i].transform.position + Vector3.forward * 10f, Quaternion.identity);
+            frameTime = frameTime - (ellapsed % beatDuration);
+            ellapsed = ellapsed % beatDuration;
+            Debug.Log("Beat");
         }
 
-        _ellapsedMusic += _ellapsed;
+        ellapsedMusic += ellapsed;
 
+        for (int i = 0; i < notes.Count; i++)
+        {
+            notes[i].transform.position += Vector3.back * timeRatio * Time.deltaTime * speed;
+        }
     }
 }
