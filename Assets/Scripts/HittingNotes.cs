@@ -5,6 +5,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.OnScreen;
+using UnityEngine.UI;
 using static UnityEngine.InputSystem.InputAction;
 
 public class HittingNotes : MonoBehaviour
@@ -26,16 +27,18 @@ public class HittingNotes : MonoBehaviour
     [SerializeField] InputActionReference input;
 
     public PauseMenu stop;
-    public Generateur notes;
     public HighScoring score;
-    public ProceduralNotes la;
+    public Generateur note;
+    public Slider slider;
 
-    public float _dist;
+    public float life = 100;
+
+    [SerializeField]float dist;
 
     public CallbackContext context;
-    private void Awake()
+    private void Start()
     {
-            
+        slider.value = 100;
     }
 
     #region init controller
@@ -66,33 +69,41 @@ public class HittingNotes : MonoBehaviour
         context = ctx;
     }
 
+
     private void OnTriggerStay(Collider other)
     {
-        if(context.ReadValueAsButton() == true)
+        dist = Vector3.Distance(note._bloc[note.selec].transform.position, other.gameObject.transform.position);
+        if (context.ReadValueAsButton() == true)
         {
-
-            if(la._dist <= 0.5f && la._dist >= -0.5f)
+            if (dist <= 0.8f)
             {
                 score.Gainscore(score.Parfait);
                 Destroy(other.gameObject);
                 Debug.Log("parfait");
             }
-            if(la._dist > -0.6f)
+            if (dist > 0.8f && dist < 1.2f)
             {
                 score.Gainscore(score.Bien);
                 Destroy(other.gameObject);
                 Debug.Log("bien");
             }
-            
+            Debug.Log(dist);
+
         }
-        if (la._dist > 0.6f)
-        {
-            Destroy(other.gameObject);
-        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        score.combo = 0;
+        if(score.combo == 0 )
+            score.Combo.text= "";
+        slider.value += score.rate;
+        Destroy(other.gameObject);
     }
     private void Update()
     {
-        if(stop.inPause == true)
+        
+
+        if (stop.inPause == true)
         {
             this.enabled = false; 
         }

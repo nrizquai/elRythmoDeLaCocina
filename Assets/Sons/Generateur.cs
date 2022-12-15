@@ -19,6 +19,7 @@ public class Generateur : MonoBehaviour
     public List<Transform> notes;
     public float speed;
     public float timeRatio;
+    public float dist;
 
     //[SerializeField] Camera cam;
     [SerializeField]Renderer box;
@@ -29,6 +30,9 @@ public class Generateur : MonoBehaviour
     float beatDuration;
     float onetwobeat;
     float onefourbeat;
+
+    public int i;
+
 
     public int selec;
 
@@ -42,7 +46,7 @@ public class Generateur : MonoBehaviour
         onefourbeat = beatDuration * 4;
 
         notes = new List<Transform>();
-        for (int i = 0; i < partition.Count; i++)
+        for (int i = 0; i < partition.Count-1; i++)
         {
             MusicNote note = partition[i];
             selec = note.Bloc;
@@ -77,13 +81,15 @@ public class Generateur : MonoBehaviour
 
         ellapsedMusic += ellapsed;
 
-        for (int i = 0; i < notes.Count; i++)
+        for (i = 0; i < notes.Count; i++)
         {
             if (notes[i] != null)
             {
                 notes[i].transform.position += Vector3.back * timeRatio * Time.deltaTime * speed;
+                dist = Vector3.Distance(_bloc[selec].transform.position, notes[i].position);
             }
         }
+
         
     }
 }
