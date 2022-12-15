@@ -71,7 +71,7 @@ public class MenuGame : MonoBehaviour
                 actual--;
         }
         //debug
-        affichage[actual].text += "*";
+        //GetComponent<Text>().text.color = 
     }
     
 }
