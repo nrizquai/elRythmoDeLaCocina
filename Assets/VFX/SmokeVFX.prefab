@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2062327215080537646}
   - component: {fileID: 8583929365583863908}
   m_Layer: 0
-  m_Name: EggSmokeVFX
+  m_Name: SmokeVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
