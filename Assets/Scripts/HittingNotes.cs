@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -8,7 +9,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class HittingNotes : MonoBehaviour
 {
-
+   
     #region à_lire
     // !!!! NOMENCLATURES PRIVÉE = _maVariable
     //                    PUBLIC = MaVariable
@@ -25,9 +26,13 @@ public class HittingNotes : MonoBehaviour
     [SerializeField] InputActionReference input;
 
     public PauseMenu stop;
-    public ProceduralNotes notes;
+    public Generateur notes;
+    public HighScoring score;
+    public ProceduralNotes la;
 
-    CallbackContext context;
+    public float _dist;
+
+    public CallbackContext context;
     private void Awake()
     {
             
@@ -58,7 +63,6 @@ public class HittingNotes : MonoBehaviour
             transform.localScale = new Vector3(_maxBlocScale, _maxBlocScale, _maxBlocScale);
         else
             transform.localScale = new Vector3(_minBlocScale, _minBlocScale, _minBlocScale);
-
         context = ctx;
     }
 
@@ -66,29 +70,31 @@ public class HittingNotes : MonoBehaviour
     {
         if(context.ReadValueAsButton() == true)
         {
-            float _dist = Vector3.Distance(transform.position, notes.transform.position);
 
-            if(_dist <= 0.5f && _dist >= -0.5f)
+            if(la._dist <= 0.5f && la._dist >= -0.5f)
             {
-
+                score.Gainscore(score.Parfait);
                 Destroy(other.gameObject);
+                Debug.Log("parfait");
             }
-            if(_dist > -0.6f)
+            if(la._dist > -0.6f)
             {
-
+                score.Gainscore(score.Bien);
                 Destroy(other.gameObject);
+                Debug.Log("bien");
             }
-            if(_dist > 0.6f)
-            {
-
-            }
+            
+        }
+        if (la._dist > 0.6f)
+        {
+            Destroy(other.gameObject);
         }
     }
     private void Update()
     {
         if(stop.inPause == true)
         {
-            this.enabled = false;
+            this.enabled = false; 
         }
     }
 }

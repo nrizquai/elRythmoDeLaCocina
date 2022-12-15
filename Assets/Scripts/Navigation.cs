@@ -10,11 +10,15 @@ public class Navigation : MonoBehaviour
     public MenuGame nav;
     [SerializeField] private Canvas LoadingCanvas;
     [SerializeField] private Canvas MainCanvas;
+    //[SerializeField] private Canvas QuitCanvas;
+     public Animator animator;
     public void valid(CallbackContext ctx)
     {
         if (nav.actual == 0 && nav.affichage.Count == 4)
         {
-            Play();
+            animator.SetBool("isOpening",true);
+           
+            
         }
 
         if (nav.actual == 1 && nav.affichage.Count == 4)
@@ -34,8 +38,6 @@ public class Navigation : MonoBehaviour
     }
     public void Play()
     {
-        LoadingCanvas.GetComponent<Canvas>().enabled = true;
-        MainCanvas.GetComponent<Canvas>().enabled = false;
         SceneManager.LoadScene(4);
     }
     public void Options()
