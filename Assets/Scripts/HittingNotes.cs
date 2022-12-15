@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -8,7 +9,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class HittingNotes : MonoBehaviour
 {
-
+   
     #region à_lire
     // !!!! NOMENCLATURES PRIVÉE = _maVariable
     //                    PUBLIC = MaVariable
@@ -93,7 +94,7 @@ public class HittingNotes : MonoBehaviour
     {
         if(stop.inPause == true)
         {
-            this.enabled = false;
+            this.enabled = false; 
         }
     }
 }
