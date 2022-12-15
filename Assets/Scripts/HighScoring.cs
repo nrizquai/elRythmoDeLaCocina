@@ -28,7 +28,7 @@ public class HighScoring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        /*if (Input.GetKeyDown(KeyCode.P))
         {
             Gainscore(Parfait);
             Debug.Log("Parfait");
@@ -37,7 +37,7 @@ public class HighScoring : MonoBehaviour
         {
             Gainscore(Bien);
             Debug.Log("Bien");
-        }
+        }*/
        
     }
 

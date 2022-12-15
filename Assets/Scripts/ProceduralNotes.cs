@@ -13,19 +13,16 @@ public class ProceduralNotes : MonoBehaviour
     // s'il y a deux variables pareilles nommé VarA, VarB par exemple.
     // /!\ ATTENTION : bien regarder le cycle de vis sur discord.
     #endregion à_lire
-    //[SerializeField] float _speed = 10f;
-    public Rigidbody _rb;
-    public Generateur _notes;
+    public float _dist;
+    public Generateur bloc;
 
-    void Start()
+    private void Start()
     {
-        _rb = transform.GetComponent<Rigidbody>();
-        _notes = FindObjectOfType<Generateur>();
+        bloc = FindObjectOfType<Generateur>();
     }
-
     void Update()
     {
-        _rb.MovePosition(transform.position - transform.forward * _notes.speed * Time.deltaTime);
+        _dist = Vector3.Distance(bloc._bloc[bloc.selec].transform.position, transform.position);
     }
 
 }
