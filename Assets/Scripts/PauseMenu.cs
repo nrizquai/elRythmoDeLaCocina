@@ -38,8 +38,6 @@ public class PauseMenu : MonoBehaviour
     {
         _playerInputs.UIController.Pause.Enable();
         _playerInputs.UIController.validate.Enable();
-
-        
     }
 
     private void OnDisable()
@@ -47,19 +45,8 @@ public class PauseMenu : MonoBehaviour
         _playerInputs.UIController.Pause.Disable();
         _playerInputs.UIController.validate.Disable();
     }
-
-    private void Start()
-    {
-        
-    }
-    private void Update()
-    {
-     
-    }
     void validate(CallbackContext ctx)
     {
-        
-        
         inPause = !inPause;
         if(inPause == true)
         {
@@ -80,23 +67,6 @@ public class PauseMenu : MonoBehaviour
             E.enabled = true;
             F.enabled = true;
         }
-
-
-
         
     }
-
-
-    //SceneManager.LoadScene(0);
-
-    public void test()
-    {
-            
-    }
-    public void Options()
-    {
-        
-    }
-
-    
 }

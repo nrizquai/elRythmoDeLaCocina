@@ -27,15 +27,6 @@ public class MenuGame : MonoBehaviour
         inputs.UIController.validate.performed += nav.valid;
         inputs.UIController.@return.started += nav.Back;
     }
-    private void Start()
-    {
-        //actual = 0;
-
-    }
-    private void Update()
-    {
-        
-    }
     private void OnEnable()
     {
         inputs.UIController.Enable();
@@ -70,8 +61,6 @@ public class MenuGame : MonoBehaviour
             else
                 actual--;
         }
-        //debug
-        //GetComponent<Text>().text.color = 
     }
     
 }

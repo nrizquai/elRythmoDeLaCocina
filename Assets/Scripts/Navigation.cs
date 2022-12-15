@@ -10,8 +10,7 @@ public class Navigation : MonoBehaviour
     public MenuGame nav;
     [SerializeField] private Canvas LoadingCanvas;
     [SerializeField] private Canvas MainCanvas;
-    //[SerializeField] private Canvas QuitCanvas;
-     public Animator animator;
+    public Animator animator;
     public void valid(CallbackContext ctx)
     {
         if (nav.actual == 0 && nav.affichage.Count == 4)

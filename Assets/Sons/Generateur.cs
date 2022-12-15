@@ -21,7 +21,6 @@ public class Generateur : MonoBehaviour
     public float timeRatio;
     public float dist;
 
-    //[SerializeField] Camera cam;
     [SerializeField]Renderer box;
     [SerializeField]Renderer boxnote;
 
@@ -38,8 +37,6 @@ public class Generateur : MonoBehaviour
 
     void Start()
     {
-        
-        //partition[0].Pos = 0.8f;
         beatDuration = 60f / bpm;
         timeRatio = bpm / 60f;
         onetwobeat = beatDuration * 2;
@@ -56,7 +53,6 @@ public class Generateur : MonoBehaviour
             boxnote = go.GetComponent<Renderer>();
 
             go.transform.position = Vector3.up * (box.bounds.max.y + boxnote.bounds.max.y) +_bloc[selec].transform.position + Vector3.forward * timeRatio * note.Pos * speed;
-            //go.GetComponent<MeshRenderer>().material.color = (partition[i] % 1 == 0 ? Color.yellow : Color.blue);
 
             notes.Add(go.transform);
 
