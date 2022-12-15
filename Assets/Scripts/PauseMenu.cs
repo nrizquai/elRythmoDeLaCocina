@@ -2,20 +2,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
 
 
 public class PauseMenu : MonoBehaviour
 {
 
-    [SerializeField] PlayerInputs _playerInputs = null;
+    [SerializeField] PlayerInputs _playerInputs;
 
     public GameObject pauseUI;
 
     public HittingNotes A, B, C, D, E, F;
 
     public bool inPause;
+
+    public float timeResume;
+    public bool EndTimer = true;
+    public Text timeText;
+
+    
 
     
     // Start is called before the first frame update
@@ -40,9 +48,17 @@ public class PauseMenu : MonoBehaviour
         _playerInputs.UIController.validate.Disable();
     }
 
-    
+    private void Start()
+    {
+        
+    }
+    private void Update()
+    {
+     
+    }
     void validate(CallbackContext ctx)
     {
+        
         
         inPause = !inPause;
         if(inPause == true)
@@ -54,7 +70,6 @@ public class PauseMenu : MonoBehaviour
         }
         if(inPause == false) 
         {
-
             Time.timeScale = 1;
             AudioListener.pause = false;
             pauseUI.SetActive(false);
@@ -65,23 +80,23 @@ public class PauseMenu : MonoBehaviour
             E.enabled = true;
             F.enabled = true;
         }
-        
 
+
+
+        
     }
 
-  
 
-    public void Valid()
+    //SceneManager.LoadScene(0);
+
+    public void test()
     {
-        
+            
     }
     public void Options()
     {
-
+        
     }
 
-    public void Quitter()
-    {
-
-    }
+    
 }
