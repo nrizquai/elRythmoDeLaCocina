@@ -21,7 +21,7 @@ public class Generateur : MonoBehaviour
     public float timeRatio;
     public float dist;
 
-    [SerializeField]Renderer box;
+    [SerializeField]Collider box;
     [SerializeField]Renderer boxnote;
 
     float ellapsed;
@@ -30,7 +30,6 @@ public class Generateur : MonoBehaviour
     float onetwobeat;
     float onefourbeat;
 
-    public int i;
 
 
     public int selec;
@@ -49,10 +48,17 @@ public class Generateur : MonoBehaviour
             selec = note.Bloc;
             GameObject go = Instantiate(prefab);
 
-            box = _bloc[selec].GetComponent<Renderer>();
+            box = _bloc[selec].GetComponent<Collider>();
             boxnote = go.GetComponent<Renderer>();
 
-            go.transform.position = Vector3.up * (box.bounds.max.y + boxnote.bounds.max.y) +_bloc[selec].transform.position + Vector3.forward * timeRatio * note.Pos * speed;
+            if (selec == 0 || selec == 1)
+                go.transform.position = Vector3.up * (box.bounds.max.y*2 + boxnote.bounds.max.y) + _bloc[selec].transform.position + Vector3.left * timeRatio * note.Pos * speed;
+
+            if (selec == 2 || selec == 3)
+                go.transform.position = Vector3.up * (box.bounds.max.y*2 + boxnote.bounds.max.y) +_bloc[selec].transform.position + Vector3.forward * timeRatio * note.Pos * speed;
+
+            if (selec == 4 || selec == 5)
+                go.transform.position = Vector3.up * (box.bounds.max.y*2 + boxnote.bounds.max.y) + _bloc[selec].transform.position + Vector3.right * timeRatio * note.Pos * speed;
 
             notes.Add(go.transform);
 
@@ -77,12 +83,18 @@ public class Generateur : MonoBehaviour
 
         ellapsedMusic += ellapsed;
 
-        for (i = 0; i < notes.Count; i++)
+        for (int i = 0; i < notes.Count; i++)
         {
             if (notes[i] != null)
             {
-                notes[i].transform.position += Vector3.back * timeRatio * Time.deltaTime * speed;
-                dist = Vector3.Distance(_bloc[selec].transform.position, notes[i].position);
+                if(partition[i].Bloc == 0 || partition[i].Bloc == 1)
+                    notes[i].transform.position += Vector3.right * timeRatio * Time.deltaTime * speed;
+
+                if(partition[i].Bloc == 2 || partition[i].Bloc == 3)
+                    notes[i].transform.position += Vector3.back * timeRatio * Time.deltaTime * speed;
+
+                if(partition[i].Bloc == 4 || partition[i].Bloc == 5)
+                    notes[i].transform.position += Vector3.left * timeRatio * Time.deltaTime * speed;
             }
         }
 

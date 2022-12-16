@@ -10,7 +10,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class HittingNotes : MonoBehaviour
 {
-   
+
     #region à_lire
     // !!!! NOMENCLATURES PRIVÉE = _maVariable
     //                    PUBLIC = MaVariable
@@ -19,6 +19,8 @@ public class HittingNotes : MonoBehaviour
     // s'il y a deux variables pareilles nommé VarA, VarB par exemple.
     // /!\ ATTENTION : bien regarder le cycle de vis sur discord.
     #endregion à_lire
+    public AudioClip clip;
+    public AudioSource source;
     [SerializeField] PlayerInputs _playerInputs = null;
 
     [SerializeField] float _maxBlocScale = 1.1f;
@@ -87,7 +89,32 @@ public class HittingNotes : MonoBehaviour
                 Destroy(other.gameObject);
                 Debug.Log("bien");
             }
-            Debug.Log(dist);
+
+
+            if (note.selec == 0)
+            {
+                source.PlayOneShot(clip);
+            }
+            /*if (note.selec == 1)
+            {
+
+            }
+            if (note.selec == 2)
+            {
+
+            }
+            if (note.selec == 3)
+            {
+
+            }
+            if (note.selec == 4)
+            {
+
+            }
+            if (note.selec == 5)
+            {
+
+            }*/
 
         }
     }

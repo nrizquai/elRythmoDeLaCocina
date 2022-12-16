@@ -63,14 +63,14 @@ public class HighScoring : MonoBehaviour
         combo += gain;
         Combo.text = "x" + combo;
         if(Combo.transform.localScale.x < 2f && Combo.transform.localScale.y < 2f && Combo.transform.localScale.z < 2f)
-            Combo.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+            Combo.transform.localScale += new Vector3(0.3f, 0.3f, 0.3f);
 
     }
 
     private void Update()
     {
         if(Combo.transform.localScale.x >= 1f && Combo.transform.localScale.y >= 1f && Combo.transform.localScale.z >= 1f)
-        Combo.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
+        Combo.transform.localScale -= new Vector3(0.02f, 0.02f, 0.02f);
         
     }
 
