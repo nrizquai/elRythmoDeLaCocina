@@ -774,7 +774,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177531150}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3014,13 +3014,105 @@ MonoBehaviour:
   - Pos: 0
     Bloc: 3
   - Pos: 0
+    Bloc: 5
+  - Pos: 0
+    Bloc: 5
+  - Pos: 0
+    Bloc: 4
+  - Pos: 0
+    Bloc: 4
+  - Pos: 0
+    Bloc: 0
+  - Pos: 0
+    Bloc: 1
+  - Pos: 0
+    Bloc: 1
+  - Pos: 0
+    Bloc: 1
+  - Pos: 0
+    Bloc: 2
+  - Pos: 0
+    Bloc: 3
+  - Pos: 0
+    Bloc: 5
+  - Pos: 0
+    Bloc: 0
+  - Pos: 0
+    Bloc: 1
+  - Pos: 0
+    Bloc: 0
+  - Pos: 0
+    Bloc: 1
+  - Pos: 5
+    Bloc: 0
+  - Pos: 0
+    Bloc: 0
+  - Pos: 0
+    Bloc: 4
+  - Pos: 0
+    Bloc: 1
+  - Pos: 0
+    Bloc: 2
+  - Pos: 0
+    Bloc: 2
+  - Pos: 0
+    Bloc: 2
+  - Pos: 0
+    Bloc: 2
+  - Pos: 0
     Bloc: 3
   - Pos: 0
     Bloc: 3
   - Pos: 0
+    Bloc: 4
+  - Pos: 0
+    Bloc: 1
+  - Pos: 0
+    Bloc: 1
+  - Pos: 0
+    Bloc: 2
+  - Pos: 0
+    Bloc: 4
+  - Pos: 0
+    Bloc: 5
+  - Pos: 0
+    Bloc: 5
+  - Pos: 0
+    Bloc: 4
+  - Pos: 0
+    Bloc: 2
+  - Pos: 0
+    Bloc: 1
+  - Pos: 0
+    Bloc: 0
+  - Pos: 0
+    Bloc: 0
+  - Pos: 0
+    Bloc: 2
+  - Pos: 0
     Bloc: 3
   - Pos: 0
-    Bloc: 0
+    Bloc: 4
+  - Pos: 0
+    Bloc: 5
+  - Pos: 0
+    Bloc: 5
+  - Pos: 0
+    Bloc: 5
+  - Pos: 0
+    Bloc: 4
+  - Pos: 0
+    Bloc: 4
+  - Pos: 0
+    Bloc: 2
+  - Pos: 0
+    Bloc: 3
+  - Pos: 0
+    Bloc: 3
+  - Pos: 0
+    Bloc: 1
+  - Pos: 0
+    Bloc: 2
   - Pos: 0
     Bloc: 0
   - Pos: 0
@@ -3028,105 +3120,13 @@ MonoBehaviour:
   - Pos: 0
     Bloc: 0
   - Pos: 0
-    Bloc: 0
+    Bloc: 1
   - Pos: 0
-    Bloc: 0
+    Bloc: 2
   - Pos: 0
-    Bloc: 0
+    Bloc: 3
   - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
-  - Pos: 0
-    Bloc: 0
+    Bloc: 4
   - Pos: 0
     Bloc: 0
   - Pos: 0
@@ -3956,7 +3956,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575649416}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4905,7 +4905,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741040886}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -6586,7 +6586,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043429800}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -7017,7 +7017,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127778556}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -8187,7 +8187,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303549999}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
