@@ -21,6 +21,8 @@ public class HittingNotes : MonoBehaviour
     #endregion à_lire
     public AudioClip furnace, slurp, pizzaPunch, bouillir;
     public List<AudioClip> decoupe, lave;
+
+    public List<GameObject> vfx;
     public AudioSource source;
     [SerializeField] PlayerInputs _playerInputs = null;
 
