@@ -11,16 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/principalScene/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/principalScene/Options.unity
     guid: 3e5b0eac15fd6234ebd4623e7a98b7e8
   - enabled: 1
     path: "Assets/Scenes/principalScene/Cr\xE9dits.unity"
     guid: 770c46b641b65f14e91ff799b34ecc41
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/principalScene/LoadingScene.unity
     guid: 0562f46e40bf36e49b5f599d76c1a4d4
   - enabled: 1
-    path: Assets/Scenes/VictoryDefeat.unity
+    path: Assets/Scenes/principalScene/VictoryDefeat.unity
     guid: 9ffb15ea429e2d3429af9d1dff3ad9e2
   m_configObjects: {}
