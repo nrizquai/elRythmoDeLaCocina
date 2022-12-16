@@ -9,16 +9,28 @@ EditorBuildSettings:
     path: Assets/Scenes/principalScene/menu.unity
     guid: 7482e5e3236bb854680e9e968f6313a9
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/principalScene/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/principalScene/Options.unity
+=======
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/Options.unity
+>>>>>>> 50c4884 (scene VictoryDefeat)
     guid: 3e5b0eac15fd6234ebd4623e7a98b7e8
   - enabled: 1
     path: "Assets/Scenes/principalScene/Cr\xE9dits.unity"
     guid: 770c46b641b65f14e91ff799b34ecc41
-  - enabled: 0
+<<<<<<< HEAD
+  - enabled: 1
     path: Assets/Scenes/principalScene/LoadingScene.unity
+=======
+  - enabled: 0
+    path: Assets/Scenes/LoadingScene.unity
+>>>>>>> 50c4884 (scene VictoryDefeat)
     guid: 0562f46e40bf36e49b5f599d76c1a4d4
   - enabled: 1
     path: Assets/Scenes/VictoryDefeat.unity
