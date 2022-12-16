@@ -611,6 +611,7 @@ GameObject:
   - component: {fileID: 159722667}
   - component: {fileID: 159722666}
   - component: {fileID: 159722670}
+  - component: {fileID: 159722671}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -691,7 +692,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 959619604}
-  - {fileID: 1310198366}
   - {fileID: 1318687317}
   - {fileID: 443309662}
   - {fileID: 1403585391}
@@ -726,6 +726,27 @@ MonoBehaviour:
   rate: -10
   score: 0
   combo: 0
+--- !u!114 &159722671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159722665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02644f3c039f6ce4092025e4246a34bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseUI: {fileID: 795025781}
+  quit: {fileID: 1404472431}
+  A: {fileID: 1221442860}
+  B: {fileID: 1084864558}
+  C: {fileID: 409886780}
+  D: {fileID: 433225135}
+  E: {fileID: 761007200}
+  F: {fileID: 493540297}
+  inPause: 0
 --- !u!1 &177531150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2112,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 159722669}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2316,7 +2337,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: -1228042006137708326, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
-  stop: {fileID: 1310198367}
+  stop: {fileID: 159722671}
   score: {fileID: 159722670}
   note: {fileID: 467036373}
   slider: {fileID: 2134760958}
@@ -2662,7 +2683,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: -7287346680587254024, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
-  stop: {fileID: 1310198367}
+  stop: {fileID: 159722671}
   score: {fileID: 159722670}
   note: {fileID: 467036373}
   slider: {fileID: 2134760958}
@@ -2741,7 +2762,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 159722669}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3444,7 +3465,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: -7964254491485311921, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
-  stop: {fileID: 1310198367}
+  stop: {fileID: 159722671}
   score: {fileID: 159722670}
   note: {fileID: 467036373}
   slider: {fileID: 2134760958}
@@ -5075,7 +5096,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: 4494603188691089152, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
-  stop: {fileID: 1310198367}
+  stop: {fileID: 159722671}
   score: {fileID: 159722670}
   note: {fileID: 467036373}
   slider: {fileID: 2134760958}
@@ -5192,7 +5213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &795025782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5206,7 +5227,7 @@ RectTransform:
   m_Children:
   - {fileID: 1808451217}
   m_Father: {fileID: 159722669}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -6887,7 +6908,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: 7763109914074179273, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
-  stop: {fileID: 1310198367}
+  stop: {fileID: 159722671}
   score: {fileID: 159722670}
   note: {fileID: 467036373}
   slider: {fileID: 2134760958}
@@ -6927,7 +6948,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7568,7 +7589,7 @@ MonoBehaviour:
   _maxBlocScale: 1.1
   _minBlocScale: 1
   input: {fileID: 2027325026871324541, guid: 540c2e29ef49ee94dbf80c3639c1bdb3, type: 3}
-  stop: {fileID: 1310198367}
+  stop: {fileID: 159722671}
   score: {fileID: 159722670}
   note: {fileID: 467036373}
   slider: {fileID: 2134760958}
@@ -7987,8 +8008,8 @@ RectTransform:
   m_Father: {fileID: 2038867526}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8234,66 +8255,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1310198365
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1310198366}
-  - component: {fileID: 1310198367}
-  m_Layer: 5
-  m_Name: PauseMenuController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1310198366
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310198365}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 159722669}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1310198367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310198365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02644f3c039f6ce4092025e4246a34bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseUI: {fileID: 1404472431}
-  quit: {fileID: 0}
-  A: {fileID: 433225135}
-  B: {fileID: 409886780}
-  C: {fileID: 1084864558}
-  D: {fileID: 761007200}
-  E: {fileID: 1221442860}
-  F: {fileID: 493540297}
-  inPause: 0
-  timeResume: 0
-  EndTimer: 1
-  timeText: {fileID: 0}
 --- !u!1 &1318687314
 GameObject:
   m_ObjectHideFlags: 0
@@ -8353,7 +8314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 422794128}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1318687317
@@ -8368,7 +8329,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 159722669}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1319652097
 GameObject:
@@ -8632,7 +8593,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 159722669}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -8689,7 +8650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 1404472431}
-  quit: {fileID: 0}
+  quit: {fileID: 422794128}
   A: {fileID: 433225135}
   B: {fileID: 409886780}
   C: {fileID: 1084864558}
@@ -8697,9 +8658,6 @@ MonoBehaviour:
   E: {fileID: 1221442860}
   F: {fileID: 493540297}
   inPause: 1
-  timeResume: 0
-  EndTimer: 1
-  timeText: {fileID: 0}
 --- !u!1001 &1436578851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11987,7 +11945,7 @@ RectTransform:
   - {fileID: 1912436809}
   - {fileID: 1065728342}
   m_Father: {fileID: 159722669}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}

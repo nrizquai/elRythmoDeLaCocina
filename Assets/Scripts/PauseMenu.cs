@@ -20,9 +20,6 @@ public class PauseMenu : MonoBehaviour
 
     public bool inPause;
 
-    public float timeResume;
-    public bool EndTimer = true;
-    public Text timeText;
     
     
 
