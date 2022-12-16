@@ -2,64 +2,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
 
 
 public class PauseMenu : MonoBehaviour
 {
 
-    [SerializeField] PlayerInputs _playerInputs;
+    [SerializeField] PlayerInputs _playerInputs = null;
 
     public GameObject pauseUI;
 
     public HittingNotes A, B, C, D, E, F;
 
+    public bool Bool;
+
     public bool inPause;
-
-    public float timeResume;
-    public bool EndTimer = true;
-    public Text timeText;
-
-    
-
+    //[SerializeField] private bool isPaused;
     
     // Start is called before the first frame update
     private void Awake()
     {
         _playerInputs = new PlayerInputs();
-        _playerInputs.UIController.Pause.performed += validate;
+        _playerInputs.UIController.Pause.performed += DeactivateMenu;
     }
-   
+
 
     private void OnEnable()
     {
         _playerInputs.UIController.Pause.Enable();
-        _playerInputs.UIController.validate.Enable();
+
+        
     }
 
     private void OnDisable()
     {
         _playerInputs.UIController.Pause.Disable();
-        _playerInputs.UIController.validate.Disable();
     }
-    void validate(CallbackContext ctx)
+
+    
+    void DeactivateMenu(CallbackContext ctx)
     {
-        inPause = !inPause;
-        if(inPause == true)
+        Bool = !Bool;
+        if(Bool == true)
         {
             Time.timeScale = 0;
             AudioListener.pause = true;
             pauseUI.SetActive(true);
-            
         }
-        if(inPause == false) 
+        if(Bool == false)
         {
             Time.timeScale = 1;
             AudioListener.pause = false;
             pauseUI.SetActive(false);
+
             A.enabled = true;
             B.enabled = true;
             C.enabled = true;
@@ -68,5 +64,6 @@ public class PauseMenu : MonoBehaviour
             F.enabled = true;
         }
         
+
     }
 }

@@ -13,7 +13,7 @@ public class Generateur : MonoBehaviour
 
     [SerializeField] GameObject prefab;
     public List<GameObject> _bloc;
-    [SerializeField] List<MusicNote> partition;
+    public List<MusicNote> partition;
     [SerializeField] float bpm;
 
     public List<Transform> notes;

@@ -19,7 +19,8 @@ public class HittingNotes : MonoBehaviour
     // s'il y a deux variables pareilles nommé VarA, VarB par exemple.
     // /!\ ATTENTION : bien regarder le cycle de vis sur discord.
     #endregion à_lire
-    public AudioClip clip;
+    //public AudioClip furnace, slurp, pizzaPunch, bouillir;
+    //public List<AudioClip> decoupe, lave;
     public AudioSource source;
     [SerializeField] PlayerInputs _playerInputs = null;
 
@@ -36,6 +37,7 @@ public class HittingNotes : MonoBehaviour
     public float life = 100;
 
     [SerializeField]float dist;
+    [SerializeField]float tmp;
 
     public CallbackContext context;
     private void Start()
@@ -65,54 +67,64 @@ public class HittingNotes : MonoBehaviour
 
         
         if (ctx.ReadValueAsButton())
+        {
             transform.localScale = new Vector3(_maxBlocScale, _maxBlocScale, _maxBlocScale);
+            Debug.Log(tmp);
+        }
+
+
         else
             transform.localScale = new Vector3(_minBlocScale, _minBlocScale, _minBlocScale);
         context = ctx;
+
     }
 
 
     private void OnTriggerStay(Collider other)
     {
         dist = Vector3.Distance(note._bloc[note.selec].transform.position, other.gameObject.transform.position);
+        //Debug.Log(dist);
         if (context.ReadValueAsButton() == true)
         {
             if (dist <= 0.8f)
             {
                 score.Gainscore(score.Parfait);
                 Destroy(other.gameObject);
-                Debug.Log("parfait");
+                //Debug.Log("parfait");
             }
             if (dist > 0.8f && dist < 1.2f)
             {
                 score.Gainscore(score.Bien);
                 Destroy(other.gameObject);
-                Debug.Log("bien");
+                //Debug.Log("bien");
             }
 
 
-            if (note.selec == 0)
+            /*if (note.selec == 0)
             {
-                source.PlayOneShot(clip);
+                source.PlayOneShot(bouillir,1f);
             }
-            /*if (note.selec == 1)
+            if (note.selec == 1)
             {
-
+                source.PlayOneShot(furnace,1f);
             }
             if (note.selec == 2)
             {
-
+                source.PlayOneShot(pizzaPunch, 1f);
             }
             if (note.selec == 3)
             {
-
+                source.PlayOneShot(slurp, 1f);
             }
             if (note.selec == 4)
             {
-
+                int i = Random.Range(0, 2);
+                source.PlayOneShot(lave[i], 1f);
             }
             if (note.selec == 5)
             {
+                int i = Random.Range(0, 2);
+                source.PlayOneShot(decoupe[i], 1f);
 
             }*/
 
@@ -128,7 +140,7 @@ public class HittingNotes : MonoBehaviour
     }
     private void Update()
     {
-        
+        tmp += Time.deltaTime;
 
         if (stop.inPause == true)
         {
