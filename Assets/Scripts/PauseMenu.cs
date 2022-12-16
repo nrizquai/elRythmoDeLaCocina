@@ -2,35 +2,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
-
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
 
-    [SerializeField] PlayerInputs _playerInputs = null;
+    [SerializeField] PlayerInputs _playerInputs;
 
     public GameObject pauseUI;
+    public GameObject quit;
 
     public HittingNotes A, B, C, D, E, F;
 
-    public bool Bool;
-
     public bool inPause;
-    //[SerializeField] private bool isPaused;
+
+    public float timeResume;
+    public bool EndTimer = true;
+    public Text timeText;
+    
+    
+
     
     // Start is called before the first frame update
     private void Awake()
     {
         _playerInputs = new PlayerInputs();
-        _playerInputs.UIController.Pause.performed += DeactivateMenu;
+        _playerInputs.UIController.Pause.performed += validate;
+        _playerInputs.UIController.validate.performed += southbutton;
     }
-
+   
 
     private void OnEnable()
     {
         _playerInputs.UIController.Pause.Enable();
+        _playerInputs.UIController.validate.Enable();
 
         
     }
@@ -38,24 +47,34 @@ public class PauseMenu : MonoBehaviour
     private void OnDisable()
     {
         _playerInputs.UIController.Pause.Disable();
+        _playerInputs.UIController.validate.Disable();
     }
 
-    
-    void DeactivateMenu(CallbackContext ctx)
+    private void Start()
     {
-        Bool = !Bool;
-        if(Bool == true)
+        
+    }
+    private void Update()
+    {
+        
+    }
+    void validate(CallbackContext ctx)
+    {
+        
+        
+        inPause = !inPause;
+        if(inPause == true)
         {
             Time.timeScale = 0;
             AudioListener.pause = true;
             pauseUI.SetActive(true);
+            
         }
-        if(Bool == false)
+        if(inPause == false) 
         {
             Time.timeScale = 1;
             AudioListener.pause = false;
             pauseUI.SetActive(false);
-
             A.enabled = true;
             B.enabled = true;
             C.enabled = true;
@@ -63,7 +82,24 @@ public class PauseMenu : MonoBehaviour
             E.enabled = true;
             F.enabled = true;
         }
-        
 
     }
+
+    public void southbutton(CallbackContext ctx)
+    {
+        if(EventSystem.current.currentSelectedGameObject == quit)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    
+    
+        
+        
+           
+        
+       
+        
+    
 }
