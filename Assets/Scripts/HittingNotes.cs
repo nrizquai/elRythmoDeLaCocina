@@ -19,8 +19,8 @@ public class HittingNotes : MonoBehaviour
     // s'il y a deux variables pareilles nommé VarA, VarB par exemple.
     // /!\ ATTENTION : bien regarder le cycle de vis sur discord.
     #endregion à_lire
-    //public AudioClip furnace, slurp, pizzaPunch, bouillir;
-    //public List<AudioClip> decoupe, lave;
+    public AudioClip furnace, slurp, pizzaPunch, bouillir;
+    public List<AudioClip> decoupe, lave;
     public AudioSource source;
     [SerializeField] PlayerInputs _playerInputs = null;
 
@@ -82,7 +82,7 @@ public class HittingNotes : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        dist = Vector3.Distance(note._bloc[note.selec].transform.position, other.gameObject.transform.position);
+        dist = Vector3.Distance(transform.position, other.gameObject.transform.position);
         //Debug.Log(dist);
         if (context.ReadValueAsButton() == true)
         {
@@ -99,34 +99,34 @@ public class HittingNotes : MonoBehaviour
                 //Debug.Log("bien");
             }
 
-
-            /*if (note.selec == 0)
+            int selec = note._bloc.IndexOf(gameObject);
+            if (selec == 0)
             {
                 source.PlayOneShot(bouillir,1f);
             }
-            if (note.selec == 1)
+            if (selec == 1)
             {
                 source.PlayOneShot(furnace,1f);
             }
-            if (note.selec == 2)
+            if (selec == 2)
             {
                 source.PlayOneShot(pizzaPunch, 1f);
             }
-            if (note.selec == 3)
+            if (selec == 3)
             {
                 source.PlayOneShot(slurp, 1f);
             }
-            if (note.selec == 4)
+            if (selec == 4)
             {
                 int i = Random.Range(0, 2);
                 source.PlayOneShot(lave[i], 1f);
             }
-            if (note.selec == 5)
+            if (selec == 5)
             {
                 int i = Random.Range(0, 2);
                 source.PlayOneShot(decoupe[i], 1f);
 
-            }*/
+            }
 
         }
     }

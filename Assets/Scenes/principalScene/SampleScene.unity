@@ -2245,7 +2245,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cddfbe6e951bb4884c0622b35977f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  furnace: {fileID: 8300000, guid: 17f63cb3cb173cb4f9d8e044bdc383ae, type: 3}
+  slurp: {fileID: 8300000, guid: ed4372c911aefb14faf65ba6f7ac533f, type: 3}
+  pizzaPunch: {fileID: 8300000, guid: 9374deaf88e4e9545a642aa302a08548, type: 3}
+  bouillir: {fileID: 8300000, guid: 6db3f7683f2c11148ad47e78bdab4002, type: 3}
+  decoupe:
+  - {fileID: 8300000, guid: edfd329e2cd30c147bb1437a2c6dad48, type: 3}
+  - {fileID: 8300000, guid: 98e77a9859ab3954889456af1984bfca, type: 3}
+  lave:
+  - {fileID: 8300000, guid: b21bb59b885c654449bd6fc03c55094e, type: 3}
+  - {fileID: 8300000, guid: f6095dad436594142873ddf20126decd, type: 3}
   source: {fileID: 0}
   _maxBlocScale: 1.1
   _minBlocScale: 1
@@ -2256,6 +2265,7 @@ MonoBehaviour:
   slider: {fileID: 2134760958}
   life: 0
   dist: 0
+  tmp: 0
 --- !u!82 &409886781
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2677,7 +2687,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cddfbe6e951bb4884c0622b35977f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  furnace: {fileID: 8300000, guid: 17f63cb3cb173cb4f9d8e044bdc383ae, type: 3}
+  slurp: {fileID: 8300000, guid: ed4372c911aefb14faf65ba6f7ac533f, type: 3}
+  pizzaPunch: {fileID: 8300000, guid: 9374deaf88e4e9545a642aa302a08548, type: 3}
+  bouillir: {fileID: 8300000, guid: 6db3f7683f2c11148ad47e78bdab4002, type: 3}
+  decoupe:
+  - {fileID: 8300000, guid: edfd329e2cd30c147bb1437a2c6dad48, type: 3}
+  - {fileID: 8300000, guid: 98e77a9859ab3954889456af1984bfca, type: 3}
+  lave:
+  - {fileID: 8300000, guid: b21bb59b885c654449bd6fc03c55094e, type: 3}
+  - {fileID: 8300000, guid: f6095dad436594142873ddf20126decd, type: 3}
   source: {fileID: 0}
   _maxBlocScale: 1.1
   _minBlocScale: 1
@@ -2688,6 +2707,7 @@ MonoBehaviour:
   slider: {fileID: 2134760958}
   life: 0
   dist: 0
+  tmp: 0
 --- !u!82 &433225136
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3545,7 +3565,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cddfbe6e951bb4884c0622b35977f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  furnace: {fileID: 8300000, guid: 17f63cb3cb173cb4f9d8e044bdc383ae, type: 3}
+  slurp: {fileID: 8300000, guid: ed4372c911aefb14faf65ba6f7ac533f, type: 3}
+  pizzaPunch: {fileID: 8300000, guid: 9374deaf88e4e9545a642aa302a08548, type: 3}
+  bouillir: {fileID: 8300000, guid: 6db3f7683f2c11148ad47e78bdab4002, type: 3}
+  decoupe:
+  - {fileID: 8300000, guid: edfd329e2cd30c147bb1437a2c6dad48, type: 3}
+  - {fileID: 8300000, guid: 98e77a9859ab3954889456af1984bfca, type: 3}
+  lave:
+  - {fileID: 8300000, guid: b21bb59b885c654449bd6fc03c55094e, type: 3}
+  - {fileID: 8300000, guid: f6095dad436594142873ddf20126decd, type: 3}
   source: {fileID: 0}
   _maxBlocScale: 1.1
   _minBlocScale: 1
@@ -3556,6 +3585,7 @@ MonoBehaviour:
   slider: {fileID: 2134760958}
   life: 0
   dist: 0
+  tmp: 0
 --- !u!82 &493540298
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5262,7 +5292,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cddfbe6e951bb4884c0622b35977f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  furnace: {fileID: 8300000, guid: 17f63cb3cb173cb4f9d8e044bdc383ae, type: 3}
+  slurp: {fileID: 8300000, guid: ed4372c911aefb14faf65ba6f7ac533f, type: 3}
+  pizzaPunch: {fileID: 8300000, guid: 9374deaf88e4e9545a642aa302a08548, type: 3}
+  bouillir: {fileID: 8300000, guid: 6db3f7683f2c11148ad47e78bdab4002, type: 3}
+  decoupe:
+  - {fileID: 8300000, guid: edfd329e2cd30c147bb1437a2c6dad48, type: 3}
+  - {fileID: 8300000, guid: 98e77a9859ab3954889456af1984bfca, type: 3}
+  lave:
+  - {fileID: 8300000, guid: b21bb59b885c654449bd6fc03c55094e, type: 3}
+  - {fileID: 8300000, guid: f6095dad436594142873ddf20126decd, type: 3}
   source: {fileID: 0}
   _maxBlocScale: 1.1
   _minBlocScale: 1
@@ -5273,6 +5312,7 @@ MonoBehaviour:
   slider: {fileID: 2134760958}
   life: 0
   dist: 0
+  tmp: 0
 --- !u!82 &761007201
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7108,7 +7148,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cddfbe6e951bb4884c0622b35977f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  furnace: {fileID: 8300000, guid: 17f63cb3cb173cb4f9d8e044bdc383ae, type: 3}
+  slurp: {fileID: 8300000, guid: ed4372c911aefb14faf65ba6f7ac533f, type: 3}
+  pizzaPunch: {fileID: 8300000, guid: 9374deaf88e4e9545a642aa302a08548, type: 3}
+  bouillir: {fileID: 8300000, guid: 6db3f7683f2c11148ad47e78bdab4002, type: 3}
+  decoupe:
+  - {fileID: 8300000, guid: edfd329e2cd30c147bb1437a2c6dad48, type: 3}
+  - {fileID: 8300000, guid: 98e77a9859ab3954889456af1984bfca, type: 3}
+  lave:
+  - {fileID: 8300000, guid: b21bb59b885c654449bd6fc03c55094e, type: 3}
+  - {fileID: 8300000, guid: f6095dad436594142873ddf20126decd, type: 3}
   source: {fileID: 0}
   _maxBlocScale: 1.1
   _minBlocScale: 1
@@ -7119,6 +7168,7 @@ MonoBehaviour:
   slider: {fileID: 2134760958}
   life: 0
   dist: 0
+  tmp: 0
 --- !u!82 &1084864559
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7875,7 +7925,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cddfbe6e951bb4884c0622b35977f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  furnace: {fileID: 8300000, guid: 17f63cb3cb173cb4f9d8e044bdc383ae, type: 3}
+  slurp: {fileID: 8300000, guid: ed4372c911aefb14faf65ba6f7ac533f, type: 3}
+  pizzaPunch: {fileID: 8300000, guid: 9374deaf88e4e9545a642aa302a08548, type: 3}
+  bouillir: {fileID: 8300000, guid: 6db3f7683f2c11148ad47e78bdab4002, type: 3}
+  decoupe:
+  - {fileID: 8300000, guid: edfd329e2cd30c147bb1437a2c6dad48, type: 3}
+  - {fileID: 8300000, guid: 98e77a9859ab3954889456af1984bfca, type: 3}
+  lave:
+  - {fileID: 8300000, guid: b21bb59b885c654449bd6fc03c55094e, type: 3}
+  - {fileID: 8300000, guid: f6095dad436594142873ddf20126decd, type: 3}
   source: {fileID: 0}
   _maxBlocScale: 1.1
   _minBlocScale: 1
@@ -7886,6 +7945,7 @@ MonoBehaviour:
   slider: {fileID: 2134760958}
   life: 0
   dist: 0
+  tmp: 0
 --- !u!82 &1221442861
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8696,10 +8756,8 @@ MonoBehaviour:
   D: {fileID: 761007200}
   E: {fileID: 1221442860}
   F: {fileID: 493540297}
+  Bool: 0
   inPause: 0
-  timeResume: 0
-  EndTimer: 1
-  timeText: {fileID: 0}
 --- !u!1 &1318687314
 GameObject:
   m_ObjectHideFlags: 0
@@ -9104,10 +9162,8 @@ MonoBehaviour:
   D: {fileID: 761007200}
   E: {fileID: 1221442860}
   F: {fileID: 493540297}
+  Bool: 0
   inPause: 1
-  timeResume: 0
-  EndTimer: 1
-  timeText: {fileID: 0}
 --- !u!1001 &1436578851
 PrefabInstance:
   m_ObjectHideFlags: 0
