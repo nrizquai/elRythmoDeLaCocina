@@ -62,6 +62,7 @@ public class Generateur : MonoBehaviour
 
             notes.Add(go.transform);
 
+            //partition[0].Pos =
             partition[i].Pos += onefourbeat;
             partition[i+1].Pos = partition[i].Pos;
         }
