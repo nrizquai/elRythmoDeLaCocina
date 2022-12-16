@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,35 +11,18 @@ public class HighScoring : MonoBehaviour
     public Text Combo;
     public int Parfait = 100;
     public int Bien = 50;
+    public int rate = -10;
     public int score = 0;
     public int combo = 0;
 
-    
-
-    // Start is called before the first frame update
     void Start()
     {
         if (PlayerPrefs.HasKey("Highscore"))
         {
-            Highscore.text = PlayerPrefs.GetInt("Highscore", 0).ToString();
+            Highscore.text = PlayerPrefs.GetInt("Highscore", 0).ToString("0000000");
         }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (Input.GetKeyDown(KeyCode.P))
-        {
-            Gainscore(Parfait);
-            Debug.Log("Parfait");
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            Gainscore(Bien);
-            Debug.Log("Bien");
-        }*/
-       
+        Combo.text = "";
+        Score.text = "0000000";
     }
 
     public void SaveScore(int score)
@@ -60,7 +44,7 @@ public class HighScoring : MonoBehaviour
     public void Gainscore(int gagner)
     {
         score += gagner;
-        Score.text = "Score:" + score;
+        Score.text = score.ToString("0000000");
 
         if (gagner > 0)
         {
@@ -77,10 +61,18 @@ public class HighScoring : MonoBehaviour
     public void Gaincombo(int gain)
     {
         combo += gain;
-        Combo.text = "Combo:" + combo;
-
+        Combo.text = "x" + combo;
+        if(Combo.transform.localScale.x < 2f && Combo.transform.localScale.y < 2f && Combo.transform.localScale.z < 2f)
+            Combo.transform.localScale += new Vector3(0.3f, 0.3f, 0.3f);
 
     }
 
-    
+    private void Update()
+    {
+        if(Combo.transform.localScale.x >= 1f && Combo.transform.localScale.y >= 1f && Combo.transform.localScale.z >= 1f)
+        Combo.transform.localScale -= new Vector3(0.02f, 0.02f, 0.02f);
+        
+    }
+
+
 }

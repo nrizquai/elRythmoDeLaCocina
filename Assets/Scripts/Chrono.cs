@@ -7,18 +7,14 @@ public class Chrono : MonoBehaviour
 {
     [SerializeField] private Image uiFill;
 
+    public AudioClip clip;
     public int Duration;
     private int remainingDuration;
-    // Start is called before the first frame update
+
     void Start()
     {
+        Duration = (int)clip.length;
         Being(Duration);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void Being (int Second)

@@ -19,9 +19,9 @@ public class Generateur : MonoBehaviour
     public List<Transform> notes;
     public float speed;
     public float timeRatio;
+    public float dist;
 
-    //[SerializeField] Camera cam;
-    [SerializeField]Renderer box;
+    [SerializeField]Collider box;
     [SerializeField]Renderer boxnote;
 
     float ellapsed;
@@ -30,29 +30,35 @@ public class Generateur : MonoBehaviour
     float onetwobeat;
     float onefourbeat;
 
+
+
     public int selec;
 
     void Start()
     {
-        
-        //partition[0].Pos = 0.8f;
         beatDuration = 60f / bpm;
         timeRatio = bpm / 60f;
         onetwobeat = beatDuration * 2;
         onefourbeat = beatDuration * 4;
 
         notes = new List<Transform>();
-        for (int i = 0; i < partition.Count; i++)
+        for (int i = 0; i < partition.Count-1; i++)
         {
             MusicNote note = partition[i];
             selec = note.Bloc;
             GameObject go = Instantiate(prefab);
 
-            box = _bloc[selec].GetComponent<Renderer>();
+            box = _bloc[selec].GetComponent<Collider>();
             boxnote = go.GetComponent<Renderer>();
 
-            go.transform.position = Vector3.up * (box.bounds.max.y + boxnote.bounds.max.y) +_bloc[selec].transform.position + Vector3.forward * timeRatio * note.Pos * speed;
-            //go.GetComponent<MeshRenderer>().material.color = (partition[i] % 1 == 0 ? Color.yellow : Color.blue);
+            if (selec == 0 || selec == 1)
+                go.transform.position = Vector3.up * (box.bounds.max.y*2 + boxnote.bounds.max.y) + _bloc[selec].transform.position + Vector3.left * timeRatio * note.Pos * speed;
+
+            if (selec == 2 || selec == 3)
+                go.transform.position = Vector3.up * (box.bounds.max.y*2 + boxnote.bounds.max.y) +_bloc[selec].transform.position + Vector3.forward * timeRatio * note.Pos * speed;
+
+            if (selec == 4 || selec == 5)
+                go.transform.position = Vector3.up * (box.bounds.max.y*2 + boxnote.bounds.max.y) + _bloc[selec].transform.position + Vector3.right * timeRatio * note.Pos * speed;
 
             notes.Add(go.transform);
 
@@ -81,9 +87,17 @@ public class Generateur : MonoBehaviour
         {
             if (notes[i] != null)
             {
-                notes[i].transform.position += Vector3.back * timeRatio * Time.deltaTime * speed;
+                if(partition[i].Bloc == 0 || partition[i].Bloc == 1)
+                    notes[i].transform.position += Vector3.right * timeRatio * Time.deltaTime * speed;
+
+                if(partition[i].Bloc == 2 || partition[i].Bloc == 3)
+                    notes[i].transform.position += Vector3.back * timeRatio * Time.deltaTime * speed;
+
+                if(partition[i].Bloc == 4 || partition[i].Bloc == 5)
+                    notes[i].transform.position += Vector3.left * timeRatio * Time.deltaTime * speed;
             }
         }
+
         
     }
 }

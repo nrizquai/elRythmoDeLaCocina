@@ -5,11 +5,12 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.OnScreen;
+using UnityEngine.UI;
 using static UnityEngine.InputSystem.InputAction;
 
 public class HittingNotes : MonoBehaviour
 {
-   
+
     #region à_lire
     // !!!! NOMENCLATURES PRIVÉE = _maVariable
     //                    PUBLIC = MaVariable
@@ -18,6 +19,8 @@ public class HittingNotes : MonoBehaviour
     // s'il y a deux variables pareilles nommé VarA, VarB par exemple.
     // /!\ ATTENTION : bien regarder le cycle de vis sur discord.
     #endregion à_lire
+    public AudioClip clip;
+    public AudioSource source;
     [SerializeField] PlayerInputs _playerInputs = null;
 
     [SerializeField] float _maxBlocScale = 1.1f;
@@ -26,16 +29,18 @@ public class HittingNotes : MonoBehaviour
     [SerializeField] InputActionReference input;
 
     public PauseMenu stop;
-    public Generateur notes;
     public HighScoring score;
-    public ProceduralNotes la;
+    public Generateur note;
+    public Slider slider;
 
-    public float _dist;
+    public float life = 100;
+
+    [SerializeField]float dist;
 
     public CallbackContext context;
-    private void Awake()
+    private void Start()
     {
-            
+        slider.value = 100;
     }
 
     #region init controller
@@ -66,33 +71,66 @@ public class HittingNotes : MonoBehaviour
         context = ctx;
     }
 
+
     private void OnTriggerStay(Collider other)
     {
-        if(context.ReadValueAsButton() == true)
+        dist = Vector3.Distance(note._bloc[note.selec].transform.position, other.gameObject.transform.position);
+        if (context.ReadValueAsButton() == true)
         {
-
-            if(la._dist <= 0.5f && la._dist >= -0.5f)
+            if (dist <= 0.8f)
             {
                 score.Gainscore(score.Parfait);
                 Destroy(other.gameObject);
                 Debug.Log("parfait");
             }
-            if(la._dist > -0.6f)
+            if (dist > 0.8f && dist < 1.2f)
             {
                 score.Gainscore(score.Bien);
                 Destroy(other.gameObject);
                 Debug.Log("bien");
             }
-            
+
+
+            if (note.selec == 0)
+            {
+                source.PlayOneShot(clip);
+            }
+            /*if (note.selec == 1)
+            {
+
+            }
+            if (note.selec == 2)
+            {
+
+            }
+            if (note.selec == 3)
+            {
+
+            }
+            if (note.selec == 4)
+            {
+
+            }
+            if (note.selec == 5)
+            {
+
+            }*/
+
         }
-        if (la._dist > 0.6f)
-        {
-            Destroy(other.gameObject);
-        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        score.combo = 0;
+        if(score.combo == 0 )
+            score.Combo.text= "";
+        slider.value += score.rate;
+        Destroy(other.gameObject);
     }
     private void Update()
     {
-        if(stop.inPause == true)
+        
+
+        if (stop.inPause == true)
         {
             this.enabled = false; 
         }
